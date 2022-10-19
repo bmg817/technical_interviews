@@ -3,20 +3,28 @@ class Solution
 public:
     // Space complexity: O(n)
     // Time complexity: O(n)
-    vector<int> twoSum(vector<int> &nums, int target)
+    vector<int> twoSum(const vector<int> &nums, int target)
     {
-        unordered_map<int, int> indexOfValues; // Space complexity: O(n)
+        // Space complexity: O(n)
+        unordered_map<int, int> indexOfValues;
+        
+        // Time Complexity of loop: O(n)
         for (int i = 0; i < nums.size(); i++)
-        {                      // Time Complexity of loop: O(n)
-            int num = nums[i]; // loop through each of the nums
+        {                      
+            int num = nums[i]; 
             int diff = target - num;
-            // see if the complementary value already exists in the dictionary, if it does return the indices
-            // this next step MUST come before storing current num into the dictionary. Otherwise, if there are non-unique combinations (e.g. 3+3 = 6)
-            // we might get a false positive for the wrong index
+            // check if complementary value already exists in the dictionary, if so, return the indices
+            
+            // this next step MUST be before storing current num in dictionary. 
+            // Otherwise, false positives could occur for non-unique combinations (e.g. 3+3 = 6, case: [1,3,4])
+
+            // Average time complexity: O(n) (worst case O(n))
             if (indexOfValues.find(diff) != indexOfValues.end())
-                return {i, indexOfValues[diff]}; // Average time complexity: O(n) (worst case O(logn))
-            // if it does not exist, store the given index and number in the dictionary
-            indexOfValues[num] = i; // Average time complexity: O(n) (worst case O(logn))
+                return {i, indexOfValues[diff]};
+
+            // If it does not exist, store the given index and number in the dictionary
+            // Average time complexity: O(n)
+            indexOfValues[num] = i; 
         }
         return {};
     }
