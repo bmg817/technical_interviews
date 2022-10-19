@@ -1,16 +1,25 @@
-class Solution {
+class Solution
+{
 public:
-    bool containsDuplicate(vector<int>& nums) {
-        // Step 1: Initialize set (Space complexity: O(n))
+    // 217. Contains Duplicate: https://leetcode.com/problems/contains-duplicate/
+    // Time complexity: O(n)
+    // Space complexity: O(n)
+
+    bool containsDuplicate(const vector<int> &nums)
+    {
+        // Space complexity: O(n)
         unordered_set<int> seenNums;
-        
-        // Step 2: Loop through each value (Time complexity: O(n))
-        // and check if the number is unique
-        for (const auto& num: nums) {
-            const auto [_, uniqueVal] = seenNums.insert(num); // average case: O(1), although can be O(logn) in worst case
-            if (!uniqueVal) return true;
+
+        // Loop through each value to check if number is unique
+        // Time complexity: O(n)
+        for (const auto &num : nums)
+        {
+            // Average case: O(1). Worst case: O(logn)
+            const auto [_, uniqueVal] = seenNums.insert(num);
+            if (!uniqueVal)
+                return true;
         }
-        
+
         return false;
     }
 };
