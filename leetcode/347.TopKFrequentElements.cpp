@@ -2,7 +2,7 @@ class Solution
 {
 public:
     // 347. Top K Frequent Elements: https://leetcode.com/problems/top-k-frequent-elements/
-    // Time Complexity: O(n)
+    // Time Complexity: O(n) if k is sufficiently small. If k approaches n, time complexity is O(nlogn).
     // Space Complexity: O(n)
 
     vector<int> topKFrequent(const vector<int> &nums, int k)
@@ -35,6 +35,7 @@ public:
         while (j < k)
         {
             // pop off max values from heap k times and store in `res` vector
+            // Time Complexity: O(klogn)
             result[j] = pq.top().second;
             pq.pop();
             j++;
