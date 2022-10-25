@@ -12,7 +12,7 @@ public:
     {
         string result;
         // Time complexity: number of words
-        // Space complexity: O(n*l)
+        // Space complexity: O(n*llengthOfWord)
         for (int i = 0; i < strs.size(); i++)
             // for each word, store a combination of the
             // number of characters, encode string, and the word itself
@@ -41,9 +41,11 @@ public:
             }
 
             // use the length of the word to identify indices of substring for word
-            int lengthOfWord = stoi(lengthBuffer); // O(k) -- number of digits of word
+            // O(k) -- number of digits of word
+            int lengthOfWord = stoi(lengthBuffer);
 
-            result.push_back(s.substr(i + kEncodeStr.size(), lengthOfWord)); // O(l) length of word
+            // O(l) length of word
+            result.push_back(s.substr(i + kEncodeStr.size(), lengthOfWord)); 
             i += kEncodeStr.size() + lengthOfWord;
         }
 
