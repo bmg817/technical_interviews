@@ -1,3 +1,5 @@
+inline constexpr string_view kEncodeStr = "@";
+
 class Codec
 {
 public:
@@ -15,7 +17,7 @@ public:
             // for each word, store a combination of the
             // number of characters, encode string, and the word itself
             // this makes it easy to decode later
-            result += to_string(strs[i].size()) + mEncodeStr + strs[i];
+            result += to_string(strs[i].size()) + string(kEncodeStr) + strs[i];
 
         return result;
     }
@@ -30,24 +32,21 @@ public:
         // Space complexity: O(n) for the result vector
         while (i < s.size())
         {
-            string tmp;
-            while (s[i] != mEncodeStr[0] && i < s.size())
+            string lengthBuffer;
+            while (s[i] != kEncodeStr[0] && i < s.size())
             {
                 // extract the digits prior to the encoding string
-                tmp += s[i];
+                lengthBuffer += s[i];
                 i++;
             }
 
             // use the length of the word to identify indices of substring for word
-            int lengthOfWord = stoi(tmp); // O(k) -- number of digits of word
+            int lengthOfWord = stoi(lengthBuffer); // O(k) -- number of digits of word
 
-            result.push_back(s.substr(i + mEncodeStr.size(), lengthOfWord));  // O(l) length of word
-            i += mEncodeStr.size() + lengthOfWord;
+            result.push_back(s.substr(i + kEncodeStr.size(), lengthOfWord)); // O(l) length of word
+            i += kEncodeStr.size() + lengthOfWord;
         }
 
         return result;
     }
-
-private:
-    string mEncodeStr{"@@"};
 };
