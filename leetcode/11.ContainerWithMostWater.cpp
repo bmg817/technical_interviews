@@ -1,7 +1,7 @@
 class Solution
 {
 public:
-    // 11. Container With Most Water: https://leetcode.com/problems/container-with-most-water/submissions/
+    // 11. Container With Most Water: https://leetcode.com/problems/container-with-most-water/
     // Time complexity: O(n)
     // Space complexity: O(1)
 
