@@ -4,7 +4,7 @@ class Solution
 {
 public:
     // 15. 3 Sum: https://leetcode.com/problems/3sum/
-    // Time complexity: O(n)
+    // Time complexity: O(n^2)
     // Space complexity: O(1)
 
     vector<vector<int>> threeSum(vector<int> &nums)
