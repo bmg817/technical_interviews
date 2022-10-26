@@ -7,7 +7,7 @@ public:
     // Time complexity: O(n)
     // Space complexity: O(1)
 
-    vector<vector<int>> threeSum(const vector<int> &nums)
+    vector<vector<int>> threeSum(vector<int> &nums)
     {
         // Time Complexity: O(nlogn)
         sort(nums.begin(), nums.end());
