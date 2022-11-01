@@ -39,7 +39,7 @@ public:
             if ((rightIsZero && s[i] != '0') || (!rightIsZero && s[i] != '1'))
                 countChanges++;
 
-            rightIsZero = rightIsZero ? false : true;
+            rightIsZero = !rightIsZero;
         }
 
         bool leftIsZero = true;
