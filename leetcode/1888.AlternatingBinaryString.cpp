@@ -3,7 +3,7 @@ class Solution
 public:
     int minFlips(string_view s)
     {
-        // 1888. Minimum Number of flips to Make the Binary String Alternating:
+        // 1888. Minimum Number of Flips to Make the Binary String Alternating:
         // https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/
         // Time Complexity: O(n)
         // Space Complexity: O(1)
